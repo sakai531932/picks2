@@ -9,6 +9,10 @@
             </h2>
             <%= image_tag profile.image.url %>
 
+            <% if !current_user.following?(profile.user) %>
+              <%= link_to 'フォローする', follow_path(profile.user.id), method: :POST %>
+            <% end %>
+
             <p class="profile-text">
               <%= profile.introduction %>
               <%= profile.age %>
