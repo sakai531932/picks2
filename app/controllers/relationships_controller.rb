@@ -10,4 +10,7 @@ class RelationshipsController < ApplicationController
     redirect_to root_path
   end
   
+  def talk_list
+    @user = User.find(params[:id])
+  end
 end

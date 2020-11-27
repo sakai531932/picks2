@@ -1,0 +1,24 @@
+<div class="message-index-wrapper">
+  <div class="content">
+    <%= @messages.each do |message| %>
+      <%= message.content %>
+    <% end %>
+  </div>
+</div>
+
+<div class="top-hero-wrapper text-center">
+  <div class="container top-hero-container">
+    <h1 class="text-white">WELCOME TO TALKROOM!</h1>
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <%= form_for @message,
+                          html: { class: 'message-form'} do |f| %>
+          <div class="field">
+            <%= f.text_area :content, class: "content" %>
+          </div>  
+          <%= f.submit "Send", class: "btn btn-primary" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -22,6 +22,9 @@
         <ul class="nav navbar-nav navbar-right">
           <% if user_signed_in? %>
             <li>
+              <%= link_to "TALK-LIST", {controller: :relationships, action: :talk_list, user_id: current_user.id}, method: :get %>
+            </li>
+            <li>
               <% if @profile.blank? %>
                 <%= link_to new_profile_path do %>
                   <%= image_tag "icons/profile.jpeg" %>
