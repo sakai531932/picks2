@@ -1,17 +1,17 @@
 <div class="talk-list-wrapper" >
   <h2>あなたがフォローした人の一覧</h2>
   <% @user.following_user.where.not(id: current_user.id).each do |user| %>
-  <div class="follower_list">
-    <%= user.name %> 
-    <%= link_to "GO TO TALKROOM!", messages_path(id: user.id), method: :get %>
+  <div class="talk_list">
+    <%= user.email %> 
+    <%= link_to "GO TO TALKROOM!", new_message_path(followed_id: user.id), method: :get %>
   </div>  
   <% end %>
   <h2>あなたをフォローした人の一覧</h2>
   
   <% @user.follower_user.where.not(id: current_user.id).each do |user| %>
-    <div class="follower_list">
-      <%= user.name %>
-      <%= link_to "GO TO TALKROOM!", messages_path(id: user.id), method: :get %>
+    <div class="talk_list">
+      <%= user.email %>
+      <%= link_to "GO TO TALKROOM!", new1_message_path(follower_id: user.id), method: :get %>
     </div>  
   <% end %>
 </div>  

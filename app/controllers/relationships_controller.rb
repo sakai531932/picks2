@@ -11,6 +11,8 @@ class RelationshipsController < ApplicationController
   end
   
   def talk_list
-    @user = User.find(params[:id])
+    @user = User.find(params[:user_id])
+    #@relationships = Relationship.all
+    #@relationship = Relationship.find(params[:user_id])
   end
 end
