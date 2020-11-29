@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
-  root 'profiles#index'
   get 'profiles/new'
   devise_for :users
+  devise_scope :user do#トップページをログイン画面に
+    root "devise/sessions#new"
+  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :profiles
   get 'messages/new1' => 'messages#new1', as: 'new1_message'

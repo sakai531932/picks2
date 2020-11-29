@@ -22,8 +22,9 @@ class User < ApplicationRecord
     active_relationships.find_by(followed_id: user_id).destroy
   end
   
-  # フォロー確認をおこなう
+  # フォローしているかどうかの確認をおこなう
   def following?(user)
     following_user.include?(user)
   end
+  
 end

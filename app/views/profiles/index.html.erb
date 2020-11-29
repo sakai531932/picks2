@@ -9,7 +9,7 @@
             </h2>
             <%= image_tag profile.image.url %>
 
-            <% if !current_user.following?(profile.user) %>
+            <% if !current_user.following?(profile.user) and !profile.user.following?(current_user) %>
               <%= link_to 'フォローする', follow_path(profile.user.id), method: :POST %>
             <% end %>
 
