@@ -1,8 +1,6 @@
 class MessagesController < ApplicationController
   def new
-    #@relationships = current_user.active_relationships.where(follower_id: params[:id])
-    #@member_id = params[:id]
-    @relationships = Relationship.find_by(followed_id: params[:followed_id], follower_id: current_user.id)#ここでrelationshipテーブルのどのレコードかを特定したい。
+    @relationships = Relationship.find_by(followed_id: params[:followed_id], follower_id: current_user.id)
     @message = Message.new
   end
   
