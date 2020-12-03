@@ -13,6 +13,6 @@
         <% end %>
       </div>
     </div>
-    <%= link_to 'レビューを作成', new_review_path, method: :GET %>
+    <%= link_to 'レビューを作成', new_review_path(profile_user_id: @relationships.followed_id), method: :GET %>
   </div>
 </div>

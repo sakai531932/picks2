@@ -14,6 +14,8 @@ class User < ApplicationRecord
   
   has_many :messages, dependent: :destroy
   
+  has_one :profile
+  
   # ユーザーをフォローする
   def follow(user_id)
     active_relationships.create(followed_id: user_id)

@@ -1,11 +1,11 @@
 class ReviewsController < ApplicationController
   def show
-    @revies = Review.all(profile_id: profile.id)
+    @reviews = Review.all(profile_id: params[profile_id])
   end
   
   def new
     @review = Review.new
-    @profile = Profile.find_by(user_id: params[:followed_id])
+    @profile = Profile.find_by(user_id: params[:profile_user_id])
   end
   
   def create
@@ -21,6 +21,6 @@ class ReviewsController < ApplicationController
   
   private
   def review_params
-    params.require(:review).permit(:comment, :value, :continuity, :reply, :profile_id).merge(user_id: current_user.id)
+    params.require(:review).permit(:comment, :assessment, :continuity, :reply, :profile_id).merge(user_id: current_user.id)
   end
 end
