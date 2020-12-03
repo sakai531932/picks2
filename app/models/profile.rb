@@ -7,6 +7,7 @@ class Profile < ApplicationRecord
   enum sex: { man: 0, woman: 1}
   
   belongs_to :user
+  has_many :reviews
   
   mount_uploader :image, ImageUploader
 end

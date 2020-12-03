@@ -1,0 +1,56 @@
+<div class="profile-new-wrapper" >
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <h1 class="text-center">レビューを作成する</h1>
+        <%= form_for @review do |f| %>
+        <%= f.hidden_field :profile_id, :value => @profile.id %>
+          <div class="form-group">
+            <%= f.label :comment %>
+            <%= f.text_area :comment, class: 'form-control' %>
+          </div>
+          <div class="form-group">
+            <%= f.label :value, class: 'text-white' %><br />
+            <%= f.label "Ａ評価", class: 'text-white'  %>
+            <%= f.radio_button :value, "Ａ評価" %>
+            <%= f.label "Ｂ評価", class: 'text-white'  %>
+            <%= f.radio_button :value, "Ｂ評価" %>
+            <%= f.label "Ｃ評価", class: 'text-white'  %>
+            <%= f.radio_button :value, "Ｃ評価" %>
+            <%= f.label "Ｄ評価", class: 'text-white'  %>
+            <%= f.radio_button :value, "Ｄ評価" %>
+          </div>
+          
+          <div class="form-group">
+            <%= f.label :reply, class: 'text-white' %><br />
+            <%= f.label "1日以内", class: 'text-white'  %>
+            <%= f.radio_button :reply, "1日以内" %>
+            <%= f.label "２日以内", class: 'text-white'  %>
+            <%= f.radio_button :reply, "２日以内" %>
+            <%= f.label "３日以内", class: 'text-white'  %>
+            <%= f.radio_button :reply, "３日以内" %>
+            <%= f.label "4日以上", class: 'text-white'  %>
+            <%= f.radio_button :reply, "4日以上" %>
+          </div>
+          
+          <div class="form-group">
+            <%= f.label :continuity, class: 'text-white' %><br />
+            <%= f.label "～１０通", class: 'text-white'  %>
+            <%= f.radio_button :continuity, "～１０通" %>
+            <%= f.label "～２０通", class: 'text-white'  %>
+            <%= f.radio_button :continuity, "～２０通" %>
+            <%= f.label "～３０通", class: 'text-white'  %>
+            <%= f.radio_button :continuity, "～３０通" %>
+            <%= f.label "３０通～", class: 'text-white'  %>
+            <%= f.radio_button :continuity, "３０通～" %>
+          </div>
+          
+         
+　　　　　<% if user_signed_in? %>
+            <%= f.submit '投稿', class: 'btn btn-black btn-block' %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

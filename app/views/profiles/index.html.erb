@@ -8,7 +8,8 @@
               <%= profile.nickname %>
             </h2>
             <%= image_tag profile.image.url %>
-
+　　　　　　<%= link_to 'レビューを表示', review_path(profile.id), method: :GET %>
+　　　　　　
             <% if !current_user.following?(profile.user) and !profile.user.following?(current_user) %>
               <%= link_to 'フォローする', follow_path(profile.user.id), method: :POST %>
             <% end %>

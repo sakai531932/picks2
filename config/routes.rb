@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   
   resources :messages
   
+  resources :reviews
+  
   post 'follow/:id' => 'relationships#follow', as: 'follow'
   post 'unfollow/:id' => 'relationships#unfollow', as: 'unfollow'
   
