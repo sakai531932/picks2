@@ -1,6 +1,6 @@
 class ReviewsController < ApplicationController
   def show
-    @reviews = Review.all(profile_id: params[profile_id])
+    @reviews = Review.where(profile_id: params[:id])
   end
   
   def new
