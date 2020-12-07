@@ -16,6 +16,8 @@ class User < ApplicationRecord
   
   has_one :profile
   
+  has_one :card
+  
   # ユーザーをフォローする
   def follow(user_id)
     active_relationships.create(followed_id: user_id)

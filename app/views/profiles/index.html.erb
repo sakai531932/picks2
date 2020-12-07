@@ -14,9 +14,7 @@
               <%= link_to 'フォローする', follow_path(profile.user.id), method: :POST %>
             <% end %>
             
-            <form action="/pay" method="post">
-              <script src="https://checkout.pay.jp/" class="payjp-button" data-key=""></script>
-            </form>
+            <%= link_to '購入', new_card_path, method: :GET %>
 
             <p class="profile-text">
               <%= profile.introduction %>

@@ -38,7 +38,8 @@ class CardsController < ApplicationController
       redirect_to action: "new"
   end
   
-  def show #Cardのデータpayjpに送り情報を取り出します
+  def show#Cardのデータをpayjpに送り情報を取り出します
+  #binding.pry
     card = Card.where(user_id: current_user.id).first
     if card.blank?
       redirect_to action: "new" 
