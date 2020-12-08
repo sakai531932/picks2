@@ -6,11 +6,15 @@ Rails.application.routes.draw do
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :profiles
+  post 'profiles/purchase' => 'profiles#purchase', as: 'purchase_profile'
+  
   get 'messages/new1' => 'messages#new1', as: 'new1_message'
   
   resources :messages
   
   resources :reviews
+  
+  resources :credits
   
   post 'follow/:id' => 'relationships#follow', as: 'follow'
   post 'unfollow/:id' => 'relationships#unfollow', as: 'unfollow'

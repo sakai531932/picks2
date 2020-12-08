@@ -13,7 +13,9 @@
             <% if !current_user.following?(profile.user) and !profile.user.following?(current_user) %>
               <%= link_to 'フォローする', follow_path(profile.user.id), method: :POST %>
             <% end %>
-
+      
+            <%= link_to '購入へ進む', profile_path(current_user.id), method: :GET %>        
+        
             <p class="profile-text">
               <%= profile.introduction %>
               <%= profile.age %>

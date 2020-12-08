@@ -1,4 +1,7 @@
 class ProfilesController < ApplicationController
+  
+  require 'payjp'
+  
   def index
     @profile = Profile.find_by(user_id: current_user.id)
     @profiles = Profile.where.not(user_id: current_user.id, sex: @profile.sex)
@@ -38,6 +41,18 @@ class ProfilesController < ApplicationController
     @profile = Profile.find_by(user_id: current_user.id)
     @profile.destroy
     redirect_to root_path, success: 'プロフィールを削除しました'
+  end
+  
+  def show
+  end
+
+  def purchase
+    Payjp.api_key = "sk_test_4fef6953ad5f6b10827af230"
+    Payjp::Charge.create(
+      amount: 1000, # 決済する値段
+      card: params['payjp-token'], # フォームを送信すると作成・送信されてくるトークン
+      currency: 'jpy'
+    )
   end
 
   private
