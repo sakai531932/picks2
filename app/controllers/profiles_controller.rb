@@ -44,17 +44,23 @@ class ProfilesController < ApplicationController
   end
   
   def show
+    @profile = Profile.find_by(user_id: params[:id])
   end
 
   def purchase
+    profile = Profile.find(params[:profile_user_id])
     Payjp.api_key = "sk_test_4fef6953ad5f6b10827af230"
-    Payjp::Charge.create(
+    if Payjp::Charge.create(
       amount: 1000, # 決済する値段
       card: params['payjp-token'], # フォームを送信すると作成・送信されてくるトークン
       currency: 'jpy'
-    )
+      )
+      redirect_to follow_path(profile.user.id)
+    else
+      redirect_to profile_path(current_user.id), method: :get
+    end
   end
-
+      
   private
   def profile_params
     params.require(:profile).permit(:image, :introduction, :age, :price, :nickname, :sex)

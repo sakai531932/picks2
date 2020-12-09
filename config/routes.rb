@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :profiles
+  
+  #post 'profiles/details' => 'profiles#details', as: 'details_profile'
+  
   post 'profiles/purchase' => 'profiles#purchase', as: 'purchase_profile'
   
   get 'messages/new1' => 'messages#new1', as: 'new1_message'
@@ -14,9 +17,8 @@ Rails.application.routes.draw do
   
   resources :reviews
   
-  resources :credits
+  get 'follow/:id' => 'relationships#follow', as: 'follow'
   
-  post 'follow/:id' => 'relationships#follow', as: 'follow'
   post 'unfollow/:id' => 'relationships#unfollow', as: 'unfollow'
   
   get 'talk_list/:user_id' => 'relationships#talk_list', as: 'talk_list'

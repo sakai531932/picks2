@@ -1,0 +1,11 @@
+<div class="message-index-wrapper">
+<%= form_with url: purchase_profile_path do |f| %>
+  <%= f.hidden_field :profile_user_id, :value => @profile.user_id %>
+
+<div class="container">
+  <div class="mb-5">
+    <script type="text/javascript" src="https://checkout.pay.jp" class="payjp-button" data-key="pk_test_51c19918f4287cc1eb4d3408"></script>
+  </div>
+</div>
+<% end %>
+</div>
