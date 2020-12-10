@@ -1,11 +1,11 @@
-<div class="profile-new-wrapper" >
+<div class="review-new-wrapper" >
   <div class="container">
     <div class="row">
       <div class="col-md-6 col-md-offset-3">
         <h1 class="text-center">レビューを作成する</h1>
         <%= form_for @review do |f| %>
         <%= f.hidden_field :profile_id, :value => @profile.id %>
-          <div class="form-group">
+          <div class="text-center2">
             <%= f.label :comment %>
             <%= f.text_area :comment, class: 'form-control' %>
           </div>
@@ -45,7 +45,6 @@
             <%= f.radio_button :continuity, "３０通～" %>
           </div>
           
-         
 　　　　　<% if user_signed_in? %>
             <%= f.submit '投稿', class: 'btn btn-black btn-block' %>
           <% end %>

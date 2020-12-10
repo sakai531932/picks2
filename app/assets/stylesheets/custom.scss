@@ -1,9 +1,17 @@
-h1, h2 {
+h1 {
+  font-weight: 900;
+}
+
+h2 {
   font-weight: 100;
 }
 
 .text-white {
   color: #fff;
+}
+
+.text-black {
+  color: black;
 }
 
 .btn-white {
@@ -88,7 +96,7 @@ h1, h2 {
   }
 }
 .btn-black {
-  color: #565656;
+  color: white;
   border: 1px solid #565656;
   padding-top: 15px;
   padding-bottom: 15px;
@@ -155,3 +163,18 @@ h1, h2 {
       margin-top: 60px;
   }
 }  
+
+.review-new-wrapper {
+  padding-top: 120px;
+  background-color: black;
+  
+  .text-center {
+    font-weight: 500;
+    color: white;
+  }
+  
+  .text-center2 {
+    font-weight: 100;
+    color: white;
+  }
+}
