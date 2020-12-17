@@ -1,7 +1,8 @@
-<h1>メッセージのやり取りをしよう！</h1>
-<table class="table" id="messages">
-  <%= render @messages %>
-</table>
-<%= link_to "メッセージを作成する", new1_message_path(relationship_id: @relationships.id), method: :get, remote: true %>
-                                    
-<div id="message-form"></div>
+<div class="message-wrapper" >
+  <h1>メッセージのやり取りをしよう！</h1>
+  <table class="table" id="messages">
+    <%= render @messages %>
+  </table>
+  <%= link_to "メッセージを作成する", new1_message_path(relationship_id: @relationships.id), method: :get, remote: true %>
+  <div id="message-form"></div>
+</div> 

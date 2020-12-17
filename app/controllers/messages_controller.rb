@@ -1,6 +1,6 @@
 class MessagesController < ApplicationController
   def new
-    @relationship = Relationship.find(message_params[:relationship_id])
+    @relationship = Relationship.find(params[:relationship_id])
     #@relationships = Relationship.find_by(followed_id: params[:followed_id], follower_id: current_user.id)
     @message = Message.new
     respond_to do |format|
@@ -10,7 +10,7 @@ class MessagesController < ApplicationController
   end
   
   def new1
-    @relationship = Relationship.find(message_params[:relationship_id])
+    @relationship = Relationship.find(params[:relationship_id])
     #@relationships = Relationship.find_by(follower_id: params[:follower_id], followed_id: current_user.id)
     @message = Message.new
     respond_to do |format|
@@ -20,11 +20,13 @@ class MessagesController < ApplicationController
   end
   
   def create
-    @messages = Message.where(relationship_id: params[:relationship_id])
+    
+    #binding.pry
     @message = Message.new(message_params)
     #relationship = Relationship.find(message_params[:relationship_id])
     respond_to do |format|
       if @message.save
+         @messages = Message.where(relationship_id: message_params[:relationship_id])
         format.html
         format.js
       else
