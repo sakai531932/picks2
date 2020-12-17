@@ -17,6 +17,8 @@ Rails.application.routes.draw do
   
   get 'messages/new1' => 'messages#new1', as: 'new1_message'
   
+  get 'messages/index1' => 'messages#index1', as: 'index1_messages'
+  
   resources :messages
   
   resources :reviews

@@ -70,3 +70,4 @@ gem 'devise'
 gem "carrierwave"
 gem 'haml-rails'
 gem 'payjp'
+gem 'simple_form'

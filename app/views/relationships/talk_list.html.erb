@@ -3,7 +3,8 @@
   <% @user.following_user.where.not(id: current_user.id).each do |user| %>
   <div class="talk_list">
     <%= user.email %> 
-    <%= link_to "GO TO TALKROOM!", new_message_path(followed_id: user.id), method: :get %>
+    <%= link_to "GO TO TALKROOM!", messages_path(followed_id: user.id), method: :get %>
+                                <%# new_message_path(followed_id: user.id), method: :get %>
   </div>  
   <% end %>
   <h2>あなたを購入してくれた人の一覧</h2>
@@ -11,7 +12,8 @@
   <% @user.follower_user.where.not(id: current_user.id).each do |user| %>
     <div class="talk_list">
       <%= user.email %>
-      <%= link_to "GO TO TALKROOM!", new1_message_path(follower_id: user.id), method: :get %>
+      <%= link_to "GO TO TALKROOM!", index1_messages_path(follower_id: user.id), method: :get %>
+                                <%# new1_message_path(follower_id: user.id), method: :get %>
     </div>  
   <% end %>
 </div>  
