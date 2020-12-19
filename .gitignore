@@ -12,6 +12,7 @@
 /tmp/*
 !/log/.keep
 !/tmp/.keep
+/.env
 
 # Ignore uploaded files in development
 /storage/*
@@ -25,4 +26,3 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
-/.env
