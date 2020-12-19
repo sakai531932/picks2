@@ -2,7 +2,8 @@ class RelationshipsController < ApplicationController
   
   def follow
     current_user.follow(params[:id])
-    redirect_to root_path
+    #binding.pry
+    redirect_to done_page_path
   end
   
   def unfollow

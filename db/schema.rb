@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_09_063211) do
+ActiveRecord::Schema.define(version: 2020_12_19_024842) do
 
   create_table "messages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "content"
@@ -28,7 +28,6 @@ ActiveRecord::Schema.define(version: 2020_12_09_063211) do
     t.string "image"
     t.integer "age"
     t.integer "sex"
-    t.integer "price"
     t.string "nickname"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

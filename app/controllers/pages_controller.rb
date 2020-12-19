@@ -4,4 +4,8 @@ class PagesController < ApplicationController
   
   def index2
   end
+  
+  def done
+  end
+  
 end
