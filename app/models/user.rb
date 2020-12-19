@@ -16,6 +16,9 @@ class User < ApplicationRecord
   
   has_one :profile
   
+  #validates :picture, presence: true
+  mount_uploader :picture, ImageUploader
+  
   # ユーザーをフォローする
   def follow(user_id)
     active_relationships.create(followed_id: user_id)
