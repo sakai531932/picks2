@@ -1,3 +1,2 @@
-$('#messages').html("<%= j (render 'index') %>");
-console.log($('#messages'));
-$('#message-form').fadeOut(600);
+$('.messages').append("<li class='message'><%= @message.content %></li>");
+$('.js-form')[0].reset(); 

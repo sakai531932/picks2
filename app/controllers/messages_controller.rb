@@ -20,25 +20,27 @@ class MessagesController < ApplicationController
   end
   
   def create
-    
     @profile = Profile.find_by(user_id: current_user.id)
     @message = Message.new(message_params)
-    #relationship = Relationship.find(message_params[:relationship_id])
+
     respond_to do |format|
       if @message.save
          @messages = Message.where(relationship_id: message_params[:relationship_id])
-        format.html
-        format.js
+        format.html { redirect_to @message } # showアクションを実行し、詳細ページを表示
+        format.js  # create.js.erbが呼び出される
       else
-        format.js {render :new}
+        format.html { render :new } # new.html.erbを表示
+        format.js { render :errors } # 一番最後に実装の解説あります
       end
-    end  
+    end
   end
+  
   
   def index
     @profile = Profile.find_by(user_id: params[:followed_id])
     @relationships = Relationship.find_by(followed_id: params[:followed_id], follower_id: current_user.id)
-    @messages = Message.where(relationship_id: params[:relationship_id])
+    @messages = Message.where(relationship_id: @relationships.id)
+    @message = Message.new
     @review = Review.find_by(user_id: current_user.id, profile_id: params[:followed_id])
   end
   

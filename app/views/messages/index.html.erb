@@ -1,10 +1,33 @@
 <div class="message-wrapper" >
   <h1><%=@profile.nickname%>とメッセージのやり取りをしよう！</h1>
+  
+  <div class="contents">
+  <ul class="messages">
+    <%= render @messages %> <%# _message.html.erbを呼び出す %>
+  </ul>
+  <%= form_with(model: @message, class: 'js-form') do |f| %>
+    <%= f.text_field :content %>
+    <%= f.hidden_field :relationship_id, :value => @relationships.id %>
+    <%= f.submit %>
+  <% end %>
+  </div>
+  
+  <%#
+  
   <table class="table" id="messages">
     <%= render @messages %>
+    
+  <%#
+  
   </table>
   <%= link_to "メッセージを作成する", new_message_path(relationship_id: @relationships.id), method: :get, remote: true %>
+  
+  <%#
+  
   <div id="message-form"></div>
+  
+  %>
+  
   <% if @review.blank? %>
   　<%= link_to 'レビューを作成', new_review_path(profile_user_id: @relationships.followed_id), method: :GET %>
   <% end %>

@@ -1,9 +1,13 @@
 <tr>
   <td>
-    <%= @profile.nickname %>
-    <%= message.content %>
-    <span class="timestamp">
+    <li class="message"><%= message.content %></li>
+    <span>
       Posted <%= time_ago_in_words(message.updated_at) %> ago.
     </span>
   </td>
 </tr>
+
+
+
+<%# messageには、呼び出し側の@messagesの中身が１つ１つ渡される%>
+<%# @messagesが全て渡されるまで、このテンプレートは繰り返し呼ばれる %>
