@@ -12,7 +12,7 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @review.user_id = current_user.id
     if @review.save
-      redirect_to profiles_path, success: 'レビューが投稿されました'
+      redirect_to profiles_path,flash:{ success: 'レビューが投稿されました'}
     else
       flash.now[:danger] = "レビューに失敗しました"
       render :new

@@ -15,7 +15,7 @@ class ProfilesController < ApplicationController
     @profile = Profile.new(profile_params)
     @profile.user_id = current_user.id
     if @profile.save
-      redirect_to profiles_path, success: '投稿に成功しました'
+      redirect_to profiles_path, flash:{ success: '投稿に成功しました'}
     else
       flash.now[:danger] = "投稿に失敗しました"
       render :new
@@ -29,7 +29,7 @@ class ProfilesController < ApplicationController
   def update
     @profile = Profile.find_by(user_id: current_user.id)
     if @profile.update_attributes(profile_params)
-      redirect_to "/", success: 'プロフィールを更新しました'
+      redirect_to "/", flash:{ success: 'プロフィールを更新しました'}
     else
       flash.now[:danger] = "更新に失敗しました"
       render action: :edit
@@ -40,7 +40,7 @@ class ProfilesController < ApplicationController
   def destroy
     @profile = Profile.find_by(user_id: current_user.id)
     @profile.destroy
-    redirect_to root_path, success: 'プロフィールを削除しました'
+    redirect_to root_path,flash:{ success: 'プロフィールを削除しました'}
   end
   
   def show

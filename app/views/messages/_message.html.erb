@@ -1,5 +1,9 @@
 <tr>
   <td>
+    <%= @profile.nickname %>
     <%= message.content %>
+    <span class="timestamp">
+      Posted <%= time_ago_in_words(message.updated_at) %> ago.
+    </span>
   </td>
 </tr>

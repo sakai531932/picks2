@@ -21,7 +21,7 @@ class MessagesController < ApplicationController
   
   def create
     
-    #binding.pry
+    @profile = Profile.find_by(user_id: current_user.id)
     @message = Message.new(message_params)
     #relationship = Relationship.find(message_params[:relationship_id])
     respond_to do |format|
@@ -36,11 +36,14 @@ class MessagesController < ApplicationController
   end
   
   def index
+    @profile = Profile.find_by(user_id: params[:followed_id])
     @relationships = Relationship.find_by(followed_id: params[:followed_id], follower_id: current_user.id)
     @messages = Message.where(relationship_id: params[:relationship_id])
+    @review = Review.find_by(user_id: current_user.id, profile_id: params[:followed_id])
   end
   
   def index1
+    @profile = Profile.find_by(user_id: params[:follower_id])
     @relationships = Relationship.find_by(follower_id: params[:follower_id], followed_id: current_user.id)
     @messages = Message.where(relationship_id: params[:relationship_id])
   end

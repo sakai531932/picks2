@@ -1,9 +1,11 @@
 <div class="message-wrapper" >
-  <h1>メッセージのやり取りをしよう！</h1>
+  <h1><%=@profile.nickname%>とメッセージのやり取りをしよう！</h1>
   <table class="table" id="messages">
     <%= render @messages %>
   </table>
   <%= link_to "メッセージを作成する", new_message_path(relationship_id: @relationships.id), method: :get, remote: true %>
   <div id="message-form"></div>
-  <%= link_to 'レビューを作成', new_review_path(profile_user_id: @relationships.followed_id), method: :GET %>
+  <% if @review.blank? %>
+  　<%= link_to 'レビューを作成', new_review_path(profile_user_id: @relationships.followed_id), method: :GET %>
+  <% end %>
 </div>  
