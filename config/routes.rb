@@ -1,9 +1,15 @@
 Rails.application.routes.draw do
+  
   get 'profiles/new'
-  devise_for :users
+  
+  #devise_for :users
   #devise_scope :user do#トップページをログイン画面に
     #root "devise/sessions#new"
   #end
+  
+  devise_for :users, :controllers => {
+    :registrations => 'users/registrations'
+   }
   
   root to: 'pages#index'
   
