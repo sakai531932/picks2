@@ -11,6 +11,8 @@ class ReviewsController < ApplicationController
   def create
     @review = Review.new(review_params)
     @review.user_id = current_user.id
+    @profile = Profile.find_by(user_id: current_user.id)
+    @review.profile_nickname = @profile.nickname
     if @review.save
       redirect_to profiles_path,flash:{ success: 'レビューが投稿されました'}
     else

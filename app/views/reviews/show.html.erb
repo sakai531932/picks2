@@ -1,7 +1,36 @@
 <div class="message-index-wrapper">
-  <div class="content">
-    <%= @reviews.each do |review| %>
-      <%= review.comment %>
+  <table>
+  <thead>
+    <tr>
+      <th>[nickname]</th>
+      <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+      <th>[Assessment]</th>
+      <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+      <th>[Reply]</th>
+      <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+      <th>[Continuity]</th>
+      <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+      <th>[Comment]</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @reviews.each do |review| %>
+      <tr>
+        <td><%= review.profile_nickname %></td>
+        <td></td>
+        <td><%= review.assessment %></td>
+        <td></td>
+        <td><%= review.reply %></td>
+        <td></td>
+        <td><%= review.continuity %></td>
+        <td></td>
+        <td><%= review.comment %></td>
+      </tr>
     <% end %>
-  </div>
+  </tbody>
+  </table> 
 </div>
+
+

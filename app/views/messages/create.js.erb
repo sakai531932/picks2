@@ -1,2 +1,2 @@
-$('.messages').append("<li class='message'><h4><%= @message.profile_nickname %></h4><%= @message.content %></li>");
+$('.messages').append("<li class='message'><h4><%= @message.profile_nickname %></h4><%= @message.content %></li>(Posted <%= time_ago_in_words(@message.updated_at) %> ago.)");
 $('.js-form')[0].reset(); 
