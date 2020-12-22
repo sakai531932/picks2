@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_21_022945) do
+ActiveRecord::Schema.define(version: 2020_12_22_013805) do
 
   create_table "messages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "content"
@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 2020_12_21_022945) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "relationship_id"
+    t.string "profile_nickname"
     t.index ["user_id", "created_at"], name: "index_messages_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_messages_on_user_id"
   end

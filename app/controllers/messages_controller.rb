@@ -1,27 +1,28 @@
 class MessagesController < ApplicationController
-  def new
-    @relationship = Relationship.find(params[:relationship_id])
+  #def new
+    #@relationship = Relationship.find(params[:relationship_id])
     #@relationships = Relationship.find_by(followed_id: params[:followed_id], follower_id: current_user.id)
-    @message = Message.new
-    respond_to do |format|
-      format.html
-      format.js
-    end
-  end
+    #@message = Message.new
+    #respond_to do |format|
+      #format.html
+      #format.js
+    #end
+  #end
   
-  def new1
-    @relationship = Relationship.find(params[:relationship_id])
+  #def new1
+    #@relationship = Relationship.find(params[:relationship_id])
     #@relationships = Relationship.find_by(follower_id: params[:follower_id], followed_id: current_user.id)
-    @message = Message.new
-    respond_to do |format|
-      format.html
-      format.js
-    end
-  end
+    #@message = Message.new
+    #respond_to do |format|
+      #format.html
+      #format.js
+    #end
+  #end
   
   def create
     @profile = Profile.find_by(user_id: current_user.id)
     @message = Message.new(message_params)
+    @message.profile_nickname = @profile.nickname
 
     respond_to do |format|
       if @message.save
@@ -29,7 +30,7 @@ class MessagesController < ApplicationController
         format.html { redirect_to @message } # showアクションを実行し、詳細ページを表示
         format.js  # create.js.erbが呼び出される
       else
-        format.html { render :new } # new.html.erbを表示
+        format.html # new.html.erbを表示
         format.js { render :errors } # 一番最後に実装の解説あります
       end
     end
@@ -47,7 +48,8 @@ class MessagesController < ApplicationController
   def index1
     @profile = Profile.find_by(user_id: params[:follower_id])
     @relationships = Relationship.find_by(follower_id: params[:follower_id], followed_id: current_user.id)
-    @messages = Message.where(relationship_id: params[:relationship_id])
+    @messages1 = Message.where(relationship_id: @relationships.id)
+    @message = Message.new
   end
   
   private

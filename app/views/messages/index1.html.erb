@@ -3,7 +3,7 @@
   
   <div class="contents">
   <ul class="messages">
-    <%= render @messages %> <%# _message.html.erbを呼び出す %>
+    <%= render @messages1 %> <%# _message.html.erbを呼び出す %>
   </ul>
   <%= form_with(model: @message, class: 'js-form') do |f| %>
     <%= f.text_field :content %>

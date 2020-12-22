@@ -1,2 +1,2 @@
-$('.messages').append("<li class='message'><%= @message.content %></li>");
+$('.messages').append("<li class='message'><h4><%= @message.profile_nickname %></h4><%= @message.content %></li>");
 $('.js-form')[0].reset(); 

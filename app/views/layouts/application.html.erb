@@ -17,8 +17,10 @@
     
      <nav class="navbar navbar-default navbar-fixed-top navbar-transparent">
       <div class="container">
-        <%= link_to index2_page_path do %>
-          <span><%= image_tag "picks_logo.png", class: "navbar-brand" %></span>
+        <% if user_signed_in? %>
+          <%= link_to index2_page_path do %>
+            <span><%= image_tag "picks_logo.png", class: "navbar-brand" %></span>
+          <% end %>
         <% end %>
         <ul class="nav navbar-nav navbar-right">
           <% if user_signed_in? %>
