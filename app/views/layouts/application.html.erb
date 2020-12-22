@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
 <html>
   <head>
     <title>Picks2</title>
@@ -22,39 +23,39 @@
             <span><%= image_tag "picks_logo.png", class: "navbar-brand" %></span>
           <% end %>
         <% end %>
-        <ul class="nav navbar-nav navbar-right">
+        <div class="nav navbar-nav navbar-right">
           <% if user_signed_in? %>
-          　<li>
+          　<span>
               <%= link_to "プロフィール一覧", {controller: :profiles, action: :index, user_id: current_user.id}, method: :get %>
-            </li>
-            <li>
+            </span>
+            <span>
               <%= link_to "TALK-LIST", {controller: :relationships, action: :talk_list, user_id: current_user.id}, method: :get %>
-            </li>
-            <li>
+            </span>
+            <span>
               <% if @profile.present? %>
                 <%= link_to edit_profile_path(current_user.id) do %>
                   <%= image_tag "icons/edit.jpeg" %>
                 <% end %>
               <% end %>
-            </li>
-            <li>
+            </span>
+            <span>
               <%= link_to destroy_user_session_path, method: :delete do %>
                 <%= image_tag "icons/logout.png" %>
               <% end %>
-            </li>
+            </span>
           <% else %>
-            <li>
+            <span>
               <%= link_to new_user_registration_path do %>
                 <%= image_tag "icons/register.png" %>
               <% end %>
-            </li>
-            <li>
+            </span>
+            <span>
               <%= link_to new_user_session_path do %>
                 <%= image_tag "icons/login.png" %>
               <% end %>
-            </li>
+            </span>
           <% end %>
-        </ul>
+        </div>
       </div>
     </nav>
     
