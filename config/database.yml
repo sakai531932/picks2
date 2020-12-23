@@ -49,6 +49,6 @@ test:
 #
 production:
   <<: *default
-  database: picks2_production
-  username: picks2
-  password: <%= ENV['PICKS2_DATABASE_PASSWORD'] %>
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
